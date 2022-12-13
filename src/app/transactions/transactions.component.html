@@ -1,0 +1,35 @@
+
+<nav class="navbar navbar-light bg-success">
+    <span class="navbar-brand mb-0 h1 ms-4"> <b><i class="fa-solid fa-piggy-bank fs-2"></i></b>  &nbsp; <b> Online-Bank</b></span>
+  </nav>
+
+  <h1 class="text-success text-center"> Transactions</h1>
+ <div>
+    <input (keyup)="search($event)" id="e" style="border: 5px;" type="text" placeholder="Search -Transaction type">
+ </div>
+   
+  <h3>Transaction History</h3> 
+    <table class="table table table-success table-striped">
+        
+        <thead>  
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Transaction Type</th>
+            <th scope="col">Amount</th>
+        
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trans of transaction | filter:searchKey:'type'; let i = index " >
+            <th scope="row">{{i+1}}</th>
+            <td>{{trans.type}}</td>
+            <td>{{trans.amount}}</td>
+           
+          </tr>
+        </tbody>
+      </table>
+
+
+    <button (click)="generatePdf()" id="bt" class="btn  btn-success text-center">Export</button>
+
+    

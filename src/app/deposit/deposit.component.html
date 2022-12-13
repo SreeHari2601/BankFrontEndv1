@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/dashboard"><b><i class="fa-solid fa-piggy-bank fs-2"></i></b>  &nbsp; <b> Online-Bank</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul id="left" class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 <b> Services </b>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+              <li><a class="dropdown-item" routerLink="/withdraw">Withdraw</a></li>
+              <li><a class="dropdown-item" href="#">Balance enquiry</a></li>
+              <li><a class="dropdown-item" href="#">Transaction History</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+<div class="container mt-5 border">
+    <h1 class="text-success">Deposit-Form</h1>
+    <hr>
+    <p class="text-success">Customers are requested to note that old cheque books are being phased out with new ones having additional security features w.e.f. 01.07.2021. Please contact your branch manager for replacement of old cheque book with new cheque book well before the said date. If you have already issued cheque from old cheque book, please get it replaced with new cheque immeditely. On receipt of confirmation from you, Bank will delete the old cheque book records from Core Banking Solution (CBS) system.</p>
+    <p class="text-success">
+        You have registered for mandatory additional layer of security, by choosing 3 challenge questions and answering them. In case of providing incorrect answers to the such challenge questions your Internet Banking shall be blocked. In such case, please call our Customer Service at 1800-2222-44 & 1800-208-2244 and choose option no. 2 for further process.</p>
+   <div class="row">
+    <div class="col-4">
+        <img width="300px" class="ms-5" src="https://www.interactivebrokers.com/images/common/highlights/hdi_004_bankinstructions.png" alt="no-img">
+        <br><br>
+    </div>
+    <div class="col-8">
+        <form (ngSubmit)="Deposit()" [formGroup]="DepositForm" class="m-5">
+          
+              <div class="form-floating mb-3">
+                <input formControlName="acno"  name="acno" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+                 <label for="floating-input">Account-number</label>
+              </div>
+              <div class="text-danger" *ngIf="this.DepositForm.get('acno')?.errors && this.DepositForm.get('acno')?.touched">
+                <p class="text-center">invalid Account-number </p>
+            </div>
+            <div class="form-floating mb-3">
+              <input formControlName="pswd"  name="pswd" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+               <label for="floating-input">Password</label>
+            </div>
+            <div class="text-danger" *ngIf="this.DepositForm.get('pswd')?.errors && this.DepositForm.get('pswd')?.touched">
+              <p class="text-center">invalid Password </p>
+          </div>
+          <div class="form-floating mb-3">
+            <input formControlName="amount"  name="amount" type="text" class="form-control" id="exampleInputEmail1" placeholder="amount">
+             <label for="floating-input">Amount</label>
+          </div>
+          <div class="text-danger" *ngIf="this.DepositForm.get('amount')?.errors && this.DepositForm.get('amount')?.touched">
+            <p class="text-center">invalid Amount </p>
+        </div>
+              
+       <div class="text-danger text-center">
+          <b>{{emsg}}</b>
+       </div>
+
+              <br><br>
+              <button type="submit">
+                <button class="btn btn-success">Deposit</button>
+              </button>
+        </form>
+    </div>
+   
+</div>

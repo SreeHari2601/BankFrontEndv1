@@ -1,0 +1,54 @@
+
+<nav class="navbar navbar-light bg-success">
+  <span class="navbar-brand mb-0 h1 ms-4"> <b><i class="fa-solid fa-piggy-bank fs-2"></i></b>  &nbsp; <b> Online-Bank</b></span>
+</nav>
+
+<div class="container mt-5 border">
+    <h1 class="text-success">Register-Form</h1>
+    <hr>
+    <p class="text-success">Customers are requested to note that old cheque books are being phased out with new ones having additional security features w.e.f. 01.07.2021. Please contact your branch manager for replacement of old cheque book with new cheque book well before the said date. If you have already issued cheque from old cheque book, please get it replaced with new cheque immeditely. On receipt of confirmation from you, Bank will delete the old cheque book records from Core Banking Solution (CBS) system.</p>
+    <p class="text-success">
+        You have registered for mandatory additional layer of security, by choosing 3 challenge questions and answering them. In case of providing incorrect answers to the such challenge questions your Internet Banking shall be blocked. In such case, please call our Customer Service at 1800-2222-44 & 1800-208-2244 and choose option no. 2 for further process.</p>
+   <div class="row">
+    <div class="col-4">
+        <img width="300px" class="ms-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBcqVu0y6BvV0odF-FaW9CSnpV8pjtthO4nrMeSt61Zan6UU6yfC_lpK5TlsSUpRDIEWQ&usqp=CAU" alt="no-img">
+        <br><br>
+        
+  <a routerLink="" class="btn btn-secondary ms-5"><i class="fa-sharp fa-solid fa-arrow-left"></i> &nbsp; Back</a>
+    </div>
+    <div class="col-8">
+        <form (ngSubmit)="register()" [formGroup]="registerForm" class="m-5">
+            <div class="form-floating mb-3">
+                <input formControlName="username"  name="uname" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+                 <label for="floating-input">Username</label>
+              </div>
+              <div class="text-danger" *ngIf="this.registerForm.get('username')?.errors && this.registerForm.get('username')?.touched">
+                <p class="text-center">invalid username </p>
+            </div>
+              <div class="form-floating mb-3">
+                <input formControlName="acno"  name="acno" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+                 <label for="floating-input">Account-number</label>
+              </div>
+              <div class="text-danger" *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+                <p class="text-center">invalid Account-number </p>
+            </div>
+            <div class="form-floating mb-3">
+              <input formControlName="pswd"  name="pswd" type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
+               <label for="floating-input">Password</label>
+            </div>
+            <div class="text-danger" *ngIf="this.registerForm.get('pswd')?.errors && this.registerForm.get('pswd')?.touched">
+              <p class="text-center">invalid Password </p>
+          </div>
+              
+       <div class="text-danger text-center">
+          <b>{{emsg}}</b>
+       </div>
+
+              <br><br>
+              <button type="submit">
+                <button class="btn btn-success">Register</button>
+              </button>
+        </form>
+    </div>
+   </div>
+</div>

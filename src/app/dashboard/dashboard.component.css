@@ -1,0 +1,11 @@
+#left {
+    margin-left: 1100px;
+}
+
+#balance {
+    padding: 30px;
+}
+
+.hide {
+    opacity: 0;
+}
